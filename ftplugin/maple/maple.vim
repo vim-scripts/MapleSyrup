@@ -1,7 +1,7 @@
 " maple.vim: should be placed as ftplugin/maple/maple.vim
 " Author:	Charles E. Campbell, Jr.  <NdrOchip@ScampbellPfamily.AbizM>-NOSPAM
 " Date:		Oct 29, 2004
-" Version:	1
+" Version:	2
 " History:
 " 	1, Oct 29, 2004 : * Initial release, just contains matchit support
 " GetLatestVimScripts: 39 1 :AutoInstall: matchit.vim
@@ -11,7 +11,7 @@
 if exists("b:did_maple_ftplugin")
  finish
 endif
-let b:did_maple_ftplugin= "v1"
+let b:did_maple_ftplugin= "v2"
 
 " ---------------------------------------------------------------------
 " Custom Matchit Support: {{{1

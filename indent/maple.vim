@@ -1,7 +1,7 @@
 " Language:		Maple  (maple indent file)
 " Maintainer:	Charles Campbell
-" Last Change:	Oct 29, 2004
-" Version:		1
+" Last Change:	Oct 31, 2004
+" Version:		2
 " History:
 " 	1, Oct 29, 2004 : * initial release
 "
@@ -16,7 +16,7 @@ let b:did_indent = 1
 "DechoMsgOn
 
 setlocal indentexpr=GetMapleIndent()
-setlocal indentkeys=o,O,*<RETURN>,!^F,;,:,=elif,=else
+setlocal indentkeys=o,O,*<RETURN>,!^F,;,:,=elif,=else,=fi;,=od;
 
 " ---------------------------------------------------------------------
 " GetMapleIndent: called when an indentkey trigger is identified {{{1
@@ -43,7 +43,11 @@ fun! GetMapleIndent()
   elseif prvline =~ ':=\s*proc\s*('
    let ind= ind + &sw
 "   call Decho(v:lnum.": prvline<".prvline."> ++ind=".ind)
-  elseif curline =~ '^\s*\%(elif\|else\|od\|end\|fi\)\>'
+  endif
+
+  " subtract a 'shiftwidth'    after: if while for else elif
+  " remove a 'shiftwidth' after: od end   fi
+  if curline =~ '^\s*\%(elif\|else\|od\|end\|fi\)\>'
    let ind= ind - &sw
 "   call Decho(v:lnum.": curline<".curline."> --ind=".ind)
   else
