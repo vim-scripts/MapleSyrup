@@ -1,0 +1,36 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1116
+
+This package contains support for writing Maple V code:
+
+ * indent/maple.vim: indenting support for Maple V
+ * ftplugin/AutoAlign.vim: auto-align support for :=
+   (needs Align.vim from vimscript#294; to learn more about AutoAlign, see vimscript#884)
+ * ftplugin/maple.vim: and matchit support (matchit.vim is available via vimscript#39).
+ * plugin/cecutil.vim: 
+ * It contains tags for GetLatestVimScripts support which promote maintaining up-to-date copies (see vimscript#642).
+
+The indenting support works with
+
+	if for while else elif od end fi
+
+and indents the code appropriately as you type.  Indents are taken using the current setting of the vim's shiftwidth option (see :he shiftwidth).
+
+AutoAlignment keeps your := lined up in blocks, thereby promoting legibility.
+
+The Matchit expression supports  (see vimscript#39)
+
+   if     elif    else  fi
+   for    od
+   while  od
+   proc   RETURN  end
+
+I usually prefer to have (at least) two windows open; the top one with vim editing Maple V code (file.mv) and the bottom one running Maple V itself.  I then work with Maple (using Windows) by changing the file as needed in Vim, putting the cursor at the end of the following statement, then pressing <cr>.
+
+	read `c:\\some\\path\\to\\Maple\\file.mv`;
+
+That causes the worksheet to be updated according to the <file.mv> instructions.  Of course, I can always maximize Maple when I need to so as to see more at one time.
+
+Why "maplesyrup"?  I just couldn't resist the name!  :)
+
+(alpha/beta version available at http://mysite.verizon.net/astronaut/vim/index.html#MAPLESYRUP)
+
